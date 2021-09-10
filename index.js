@@ -21,7 +21,7 @@ app.post('/addProducts', (req, res) => {
     const product = req.body;
     productCollection.insertOne(product)
     .then(result => {
-        console.log("Data inserted", result);
+        console.log("Data inserted successfully", result);
     })
 })
 });

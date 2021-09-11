@@ -27,6 +27,21 @@ app.post('/addProducts', (req, res) => {
       res.send(result)
     })
 })
+
+app.get('/products', (req, res) => {
+  productCollection.find({})
+  .toArray((err, documents) => {
+    res.send(documents);
+  })
+})
+
+app.get('/product/:key', (req, res) => {
+  const product = req.params.key;
+  productCollection.find({key: product})
+  .toArray((err, documents) => {
+    res.send(documents[0]);
+  })
+})
 });
 
 
